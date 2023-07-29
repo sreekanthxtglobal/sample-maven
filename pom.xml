@@ -5,8 +5,8 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>com.sivaacademy.app</groupId>
-  <artifactId>my-maven-app</artifactId>
-  <version>1.0-SNAPSHOT</version>
+  <artifactId>my-qube-app</artifactId>
+  <version>1.0</version>
 
   <name>my-maven-app</name>
   <!-- FIXME change it to the project's website -->
