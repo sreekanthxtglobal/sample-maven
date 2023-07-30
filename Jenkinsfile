@@ -4,6 +4,8 @@ environment{
     COURSE="TIBCO"
 }
 stages{
+
+    failFast true
     stage("Master"){
         parallel{
          stage("parallel 1"){
