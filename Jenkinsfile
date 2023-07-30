@@ -1,5 +1,9 @@
 pipeline {
     agent any
+    //Another option for adding failfast is adding an option to the pipeline definition: parallelsAlwaysFailFast().
+     options {
+        parallelsAlwaysFailFast()
+    }
     stages {
         stage('Non-Parallel Stage') {
             steps {
@@ -8,10 +12,9 @@ pipeline {
         }
         stage('Parallel Stage') {
             when {
-                branch 'bugfix123'
+                branch 'bugfix'
             }
-            //you can force your parallel stages to all be aborted when any one of them fails, by adding failFast true to the stage containing the parallel
-            failFast true 
+            
             parallel {
                 stage('Branch A') {
                     
