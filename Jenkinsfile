@@ -1,11 +1,33 @@
-pipeline{
+ipeline{
     agent any
+    tools{
+        maven "mvn_autoinstaller"
+    }
     stages{
-        stage("satege 1"){
+        stage("maven autoinstaller"){
+           
             steps{
-                echo "agent any"
+                script{
+                    echo " maven version "
+                    sh 'mvn -version'
+                }
+            }
+            
+        }
+         stage("jdk17"){
+            tools{
+                jdk 'java17.0.2'
+            }
+            steps{
+                script{
+                    echo " maven version "
+                    sh 'mvn -version'
+                }
             }
             
         }
     }
+
+       
+    
 }
