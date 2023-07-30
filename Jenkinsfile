@@ -8,7 +8,7 @@ pipeline {
         }
         stage('Parallel Stage') {
             when {
-                branch 'bugfix'
+                branch 'bugfix123'
             }
             //you can force your parallel stages to all be aborted when any one of them fails, by adding failFast true to the stage containing the parallel
             failFast true 
