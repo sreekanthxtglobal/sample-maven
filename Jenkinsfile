@@ -1,45 +1,46 @@
-pipeline{
-agent any
-environment{
-    COURSE="TIBCO"
-}
-stages{
-
-    failFast true
-    stage("Master"){
-        parallel{
-         stage("parallel 1"){
-            steps{
-                echo "executed parallel 1 stage  ${env.BRANCH_NAME}"
-                sleep 30
-          }
-            
-         }
-         stage("parallel 2"){
-            steps{
-                echo "executed parallel 2 stage  ${env.BRANCH_NAME}"
-          
-          }
-            
-         }
-         stage("parallel 3"){
-            steps{
-                echo "executed parallel 3 stage  ${env.BRANCH_NAME}"
-            
-          }
-            
-         }
-         
+pipeline {
+    agent any
+    stages {
+        stage('Non-Parallel Stage') {
+            steps {
+                echo 'This stage will be executed first.'
+            }
         }
-        
-    }
-     stage("BranchName"){
-         steps{
-            echo "executed master stage  ${env.BRANCH_NAME}"
+        stage('Parallel Stage') {
+            when {
+                branch 'bugfix'
+            }
+            //you can force your parallel stages to all be aborted when any one of them fails, by adding failFast true to the stage containing the parallel
+            failFast true 
+            parallel {
+                stage('Branch A') {
+                    
+                    steps {
+                        echo "On Branch A"
+                    }
+                }
+                stage('Branch B') {
+                    
+                    steps {
+                        echo "On Branch B"
+                    }
+                }
+                stage('Branch C') {
+                  
+                    stages {
+                        stage('Nested 1') {
+                            steps {
+                                echo "In stage Nested 1 within Branch C"
+                            }
+                        }
+                        stage('Nested 2') {
+                            steps {
+                                echo "In stage Nested 2 within Branch C"
+                            }
+                        }
+                    }
+                }
+            }
         }
-            
     }
-
-
-}
 }
