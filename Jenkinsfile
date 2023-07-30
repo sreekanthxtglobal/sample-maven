@@ -10,7 +10,7 @@ stages{
 
                 environment name: "COURSE" , value: "TIBCO"
                 expression {
-                    env.BRANCH_NAME ==~/(main|bugfix | dev)/
+                    env.BRANCH_NAME ==~/(main|bugfix|dev)/
                 }
             } 
         }
