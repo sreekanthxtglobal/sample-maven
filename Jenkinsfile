@@ -1,12 +1,9 @@
 pipeline{
-
 agent any
-
 environment{
     COURSE="TIBCO"
 }
 stages{
-   
     stage("Master"){
         when{
             allOf{
@@ -16,15 +13,16 @@ stages{
                     env.BRANCH_NAME ==~/(1-pipeline | main)/
                 }
             } 
-
         }
         steps{
               echo "executed master stage"
-
         }
     }
       stage("BranchName"){
-            echo "executed master stage  ${env.BRANCH_NAMEa}"
+         steps{
+            echo "executed master stage  ${env.BRANCH_NAME}"
+        }
+            
     }
 
 
