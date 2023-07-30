@@ -9,6 +9,7 @@ pipeline{
                 script{
                     echo " maven version "
                     sh 'mvn -version'
+                    
                 }
             }
             
