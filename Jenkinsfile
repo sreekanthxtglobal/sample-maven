@@ -13,7 +13,7 @@ stages{
 
                 environment name: "COURSE" , value: "TIBCO"
                 expression {
-                    "${env.JOB_BASE_NAME}" ==~/(1-pipeline | main)/
+                    "${env.BRANCH_NAME}" ==~/(1-pipeline | main)/
                 }
             } 
 
