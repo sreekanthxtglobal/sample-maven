@@ -2,6 +2,7 @@ pipeline{
 agent any
 environment{
     COURSE="TIBCO"
+    
 }
 stages{
     stage("Master"){
