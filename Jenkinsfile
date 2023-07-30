@@ -7,7 +7,7 @@ pipeline{
         stage("satege 1"){
             steps{
                 script{
-                    echo " maven version "
+                    echo " maven version stage"
                     sh 'mvn -version'
                 }
             }
