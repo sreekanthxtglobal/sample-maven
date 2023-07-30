@@ -23,7 +23,9 @@ stages{
 
         }
     }
-}
+      stage("BranchName"){
+            echo "executed master stage  ${env.BRANCH_NAMEa}"
+    }
 
 
 
