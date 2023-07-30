@@ -1,17 +1,30 @@
 pipeline{
-    agent any
-    tools{
-        maven "mvn_autoinstaller"
-    }
-    stages{
-        stage("satege 1"){
-            steps{
-                script{
-                    echo " maven version stage"
-                    sh 'mvn -version'
+
+agent any
+
+environment{
+    COURSE="TIBCO"
+}
+stages{
+   
+    stage("Master"){
+        when{
+            allOf{
+
+                environment name: "COURSE" , value: "TIBCO"
+                expression {
+                    "${env.JOB_BASE_NAME}" ==~/(1-pipeline | main)/
                 }
-            }
-            
+            } 
+
+        }
+        steps{
+              echo "executed master stage"
+
         }
     }
+}
+
+
+
 }
