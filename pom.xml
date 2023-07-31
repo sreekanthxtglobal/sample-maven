@@ -7,7 +7,7 @@
   <groupId>com.sivaacademy.app</groupId>
   <artifactId>my-qube-app</artifactId>
   <version>1.0</version>
-  <package>jar</package>
+  <packaging>jar</packaging>
   <name>my-maven-app</name>
   <!-- FIXME change it to the project's website -->
   <url>http://www.example.com</url>
